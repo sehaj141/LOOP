@@ -8,13 +8,39 @@
 
 ---
 
+## 📸 Application Screenshots & Visual Walkthrough
+
+> Save screenshot images in the `public/screenshots/` folder to display them here in your repository.
+
+### 1. Analytics Dashboard
+![Analytics Dashboard](./public/screenshots/dashboard.png)
+*Real-time feedback volume trends, sentiment distribution donut chart, and top AI-clustered themes.*
+
+### 2. Feedback Inbox & Ingestion
+![Feedback Inbox](./public/screenshots/inbox.png)
+*Multi-channel inbox with server-side pagination, status workflow triage (`NEW` ➔ `REVIEWED` ➔ `ACTIONED`), single entry, and CSV bulk upload.*
+
+### 3. Theme Clustering & Spike Trends
+![Theme Trends](./public/screenshots/trends.png)
+*Automated pattern recognition with volume spike alerts (&gt;40% growth week-over-week) and detailed feedback drill-down drawer.*
+
+### 4. Ask LOOP (RAG Grounded Q&A)
+![Ask LOOP Q&A](./public/screenshots/ask_loop.png)
+*Retrieval-Augmented Generation (RAG) answering plain-English questions strictly from retrieved customer feedback with exact cited references.*
+
+### 5. Voice-of-Customer (VoC) Executive Report
+![VoC Executive Report](./public/screenshots/voc_report.png)
+*Synthesized executive narrative report with period statistics, sentiment shift analysis, verbatim quotes, and product action recommendations (Print / PDF Export ready).*
+
+---
+
 ## 🔑 Demo Login Credentials (Seeded Workspace: `Acme Corp`)
 
 | Role | Email | Password | Allowed Permissions |
 | :--- | :--- | :--- | :--- |
 | **ADMIN** | `admin@acme.com` | `password123` | Full control: manage team members, edit roles, ingest feedback, re-classify AI, generate VoC reports. |
 | **ANALYST** | `analyst@acme.com` | `password123` | Ingestion & triage: single/CSV import, channel simulation, AI re-classification, VoC reports. Read-only for settings. |
-| **VIEWER** | `viewer@acme.com` | `password123` | Read-only stakeholder: view dashboards, search inbox, Ask LOOP grounded Q&A, view VoC reports. (403 on mutations). |
+| **VIEWER** | `viewer@acme.com` | `password123` | Read-only stakeholder: view dashboards, browse inbox, Ask LOOP grounded Q&A, view VoC reports. (403 on mutations). |
 
 ---
 
@@ -25,7 +51,7 @@
 - **Database & ORM**: SQLite / PostgreSQL with Prisma ORM (Strict `workspaceId` tenant isolation)
 - **Auth & RBAC**: NextAuth / JWT Cookie session engine with 3 distinct permission roles
 - **AI & RAG Engine**: Anthropic Claude 3.5 Sonnet (`@anthropic-ai/sdk`) + Built-in Local NLP Classifier & Cosine Similarity Vector Retrieval Engine
-- **Visualizations**: Recharts interactive charts (Volume Over Time, Sentiment Pie Chart, Top Themes Bar Chart)
+- **Visualizations**: Recharts interactive charts (Volume Trend Area Chart, Sentiment Pie Chart, Top Themes Bar Chart)
 - **Validation**: Zod runtime schema validation
 
 ---
@@ -38,8 +64,8 @@
 
 ### 2. Installation
 ```bash
-git clone <your-repo-url> loop
-cd loop
+git clone https://github.com/sehaj141/LOOP.git
+cd LOOP
 npm install
 ```
 
@@ -109,4 +135,4 @@ API Route Handlers (Next.js 14)
 - **AI1 Auto-Classification**: Auto-tags sentiment (`POS`, `NEU`, `NEG`), sentiment score (-1 to 1), feature area, themes, and rationale. Manual re-classify trigger available.
 - **AI2 Theme Clustering & Spike Detection**: Groups feedback into named themes with counts and flags week-over-week volume spikes (&gt;40% growth). Theme drill-down drawer.
 - **AI3 Ask LOOP (RAG Grounded Q&A)**: Plain-English Q&A answering strictly from retrieved feedback context with cited item references.
-- **AI4 Voice-of-Customer (VoC) Executive Reports**: Period stats synthesis, executive narrative, sentiment shift analysis, verbatim quotes, and recommended product action items with PDF export/print stylesheet.
+- **AI4 Voice-of-Customer (VoC) Executive Reports**: Period stats synthesis, executive summary, sentiment shift analysis, verbatim quotes, and recommended product action items with PDF export/print stylesheet.
